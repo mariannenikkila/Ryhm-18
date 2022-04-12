@@ -13,11 +13,15 @@
 <title>question application</title>
 
 <%-- <link rel="stylesheet" type="text/css" href="mycssfilesomewhere.css"> --%>
+<<<<<<< Updated upstream:AdminRead/src/main/webapp/jsp/showquestion.jsp
 <script src="myscriptfile.js"></script>
+=======
+>>>>>>> Stashed changes:AdminRead/src/main/webapp/jsp/ShowQuestions.jsp
 
 </head>
 <body>
 	<h2>Kysymykset</h2>
+<<<<<<< Updated upstream:AdminRead/src/main/webapp/jsp/showquestion.jsp
 	<ol>
 		<c:forEach var="question" items="${requestScope.questionlist}">
 			<li>${question.question}<a href='/delete?id=${question.id}'>delete</a>
@@ -37,6 +41,17 @@ for (int i=0;questionList!=null && i<questionList.size();i++){
 
 --%>
 
+=======
+    <ol>
+        <c:forEach var="question" items="${requestScope.questionlist}">
+            <li>${question.question}
+            <a href='/delete?KYSYMYS_ID=${question.id}'>delete</a>
+            <a href='/readtoupdate?id=${question.id}'>update</a>
+        </c:forEach>
+    </ol>
+	
+	
+>>>>>>> Stashed changes:AdminRead/src/main/webapp/jsp/ShowQuestions.jsp
 
 </body>
 </html>

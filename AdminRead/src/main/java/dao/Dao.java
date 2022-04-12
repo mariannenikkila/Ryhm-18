@@ -61,6 +61,7 @@ public class Dao {
 	}
 }
 
+<<<<<<< Updated upstream
 /**	public Question readQuestion(String id) {
 		Question f=null;
 		try {
@@ -74,10 +75,42 @@ public class Dao {
 				f.setQuestion(RS.getString("KYSYMYS"));
 			}
 			return f;
+=======
+
+
+	public ArrayList<Question> deleteQuestion(String KYSYMYS_ID) {
+		try {
+			String sql="delete from kysymykset where KYSYMYS_ID=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, KYSYMYS_ID);
+			pstmt.executeUpdate();
+			return readAllQuestion();
+>>>>>>> Stashed changes
 		}
 		catch(SQLException e) {
 			return null;
 		}
 	}
+<<<<<<< Updated upstream
 }
 */
+=======
+	
+	public ArrayList<Question> AddTableData(String KYSYMYS) {
+	    String sql = "INSERT INTO kysymykset (KYSYMYS) VALUES (?)";
+	    try {
+
+	    	PreparedStatement pstmt=conn.prepareStatement(sql);
+	        pstmt.setString(2, KYSYMYS);
+	        pstmt.executeUpdate();
+	        
+	    } catch (SQLException e) {
+	        return null;
+	    }
+	    return null;
+	}
+
+
+
+}
+>>>>>>> Stashed changes

@@ -47,7 +47,7 @@ public class ReadQuestion extends HttpServlet {
 		}
 		request.setAttribute("questionlist", list);
 		
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showquestion.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/ShowQuestions.jsp");
 		rd.forward(request, response);
 	}
 }
