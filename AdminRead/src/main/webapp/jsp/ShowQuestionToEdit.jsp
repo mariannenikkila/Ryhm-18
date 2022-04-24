@@ -8,13 +8,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Fish application</title>
+<title>Vaalikone</title>
 </head>
 <body>
-<h2>Edit fish</h2>
+<h2>Muokkaa kysymystä</h2>
 <form action='update' method='post'>
-Fish id: <input type='text' name='id' value='${requestScope.fish.id}' readonly><br> 
-Fish breed: <input type='text' name='breed' value='${requestScope.fish.breed}'><br>
+Muokkaa kysymystä: <input type='text' name='KYSYMYS' value='${requestScope.question.question}'><br>
 <input type='submit' name='ok' value='Send'> 
 </form>
 </body>

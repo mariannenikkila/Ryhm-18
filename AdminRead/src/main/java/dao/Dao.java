@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
 import data.Question;
 
 import java.sql.Connection;
@@ -45,7 +44,7 @@ public class Dao {
 		ArrayList<Question> list = new ArrayList<>();
 		try {
 			Statement stmt = conn.createStatement();
-			ResultSet RS = stmt.executeQuery("select * from kysymykset");
+			ResultSet RS = stmt.executeQuery("select * from KYSYMYKSET");
 			while (RS.next()) {
 				Question f = new Question();
 				f.setId(RS.getInt("KYSYMYS_ID"));
@@ -87,6 +86,35 @@ public class Dao {
 	    return null;
 	}
 
-
-
+	public ArrayList<Question> updateQuestion(Question f) {
+		try {
+			String sql="update kysymykset set KYSYMYS=? where KYSYMYS_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, f.getQuestion());
+			pstmt.setInt(2, f.getId());
+			pstmt.executeUpdate();
+			return readAllQuestion();
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	public Question readQuestion(String id) {
+		Question f=null;
+		try {
+			String sql="select * from kysymykset where KYSYMYS_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet RS=pstmt.executeQuery();
+			while (RS.next()){
+				f=new Question();
+				f.setId(RS.getInt("KYSYMYS_id"));
+				f.setQuestion(RS.getString("KYSYMYS"));
+			}
+			return f;
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
 }

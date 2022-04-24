@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
 import data.Question;
-import dao.Dao;
 
 @WebServlet(
 	    name = "DeleteQuestion",
