@@ -61,7 +61,7 @@ public class Dao {
 
 	public ArrayList<Question> deleteQuestion(String KYSYMYS_ID) {
 		try {
-			String sql="delete from kysymykset where KYSYMYS_ID=?";
+			String sql="delete from KYSYMYKSET where KYSYMYS_ID=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, KYSYMYS_ID);
 			pstmt.executeUpdate();
@@ -73,7 +73,7 @@ public class Dao {
 	}
 	
 	public ArrayList<Question> AddTableData(String KYSYMYS) {
-	    String sql = "INSERT INTO kysymykset (KYSYMYS) VALUES (?)";
+	    String sql = "INSERT INTO KYSYMYKSET (KYSYMYS) VALUES (?)";
 	    try {
 
 	    	PreparedStatement pstmt=conn.prepareStatement(sql);
@@ -88,7 +88,7 @@ public class Dao {
 
 	public ArrayList<Question> updateQuestion(Question f) {
 		try {
-			String sql="update kysymykset set KYSYMYS=? where KYSYMYS_id=?";
+			String sql="update KYSYMYKSET set KYSYMYS=? where KYSYMYS_ID=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, f.getQuestion());
 			pstmt.setInt(2, f.getId());
@@ -102,13 +102,13 @@ public class Dao {
 	public Question readQuestion(String id) {
 		Question f=null;
 		try {
-			String sql="select * from kysymykset where KYSYMYS_id=?";
+			String sql="select * from KYSYMYKSET where KYSYMYS_ID=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()){
 				f=new Question();
-				f.setId(RS.getInt("KYSYMYS_id"));
+				f.setId(RS.getInt("KYSYMYS_ID"));
 				f.setQuestion(RS.getString("KYSYMYS"));
 			}
 			return f;
