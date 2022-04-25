@@ -8,12 +8,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Vaalikone</title>
+<title>Kysymys application</title>
 </head>
 <body>
-<h2>Muokkaa kysymystä</h2>
+<h2>Muokkaa kysymyksiä</h2>
 <form action='update' method='post'>
-Muokkaa kysymystä: <input type='text' name='KYSYMYS' value='${requestScope.question.question}'><br>
+Kysymys id: <input type='text' name='kysymys_id' value='${requestScope.question.id}' readonly><br> 
+Kysymys: <input type='text' name='kysymys' value='${requestScope.question.question}'><br>
 <input type='submit' name='ok' value='Send'> 
 </form>
 </body>

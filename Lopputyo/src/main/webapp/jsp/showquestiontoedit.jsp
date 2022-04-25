@@ -13,8 +13,8 @@
 <body>
 <h2>Muokkaa kysymyksiä</h2>
 <form action='update' method='post'>
-Kysymys id: <input type='text' name='kysymys_id' value='${requestScope.question.id}' readonly><br> 
-Kysymys: <input type='text' name='kysymys' value='${requestScope.question.question}'><br>
+Kysymys id: <input type='text' name='kysymys_id' value='${requestScope.question.kysymys_id}' readonly><br> 
+Kysymys: <input type='text' name='kysymys' value='${requestScope.question.kysymys}'><br>
 <input type='submit' name='ok' value='Send'> 
 </form>
 </body>

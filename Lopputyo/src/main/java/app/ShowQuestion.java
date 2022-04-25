@@ -1,6 +1,7 @@
 package app;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,12 +14,14 @@ import dao.Dao;
 import data.Question;
 
 /**
- * Servlet implementation class ReadToUpdate
+ * Servlet implementation class ShowFish
  */
-@WebServlet("/readtoupdate")
-public class ReadToUpdate extends HttpServlet {
+@WebServlet("/showquestion")
+public class ShowQuestion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Dao dao;
+	private Dao dao=null;
+	
+	@Override
 	public void init() {
 		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
 	}
@@ -26,7 +29,7 @@ public class ReadToUpdate extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReadToUpdate() {
+    public ShowQuestion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,15 +38,16 @@ public class ReadToUpdate extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String kysymys_id=request.getParameter("kysymys_id");
-		Question f=null;
+		ArrayList<Question> list=null;
 		if (dao.getConnection()) {
-			f=dao.readQuestion(kysymys_id);
+			list=dao.readAllQuestion();
 		}
-		request.setAttribute("question", f);
+		else {
+			System.out.println("No connection to database");
+		}
+		request.setAttribute("questionlist", list);
 		
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/ShowQuestionToEdit.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showquestion.jsp");
 		rd.forward(request, response);
 	}
 }
