@@ -10,13 +10,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Kysymys application</title>
+<title>Vaalikone</title>
 
 
 
 </head>
 <body>
-<h2>Kysymys application</h2>
+<h2>Vaalikoneen kysymykset</h2>
 	<ol>
 		<c:forEach var="question" items="${requestScope.questionlist}">
 			<li>${question.kysymys} 

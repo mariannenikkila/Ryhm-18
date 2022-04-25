@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Kysymys application</title>
+<title>Vaalikone</title>
 </head>
 <body>
 

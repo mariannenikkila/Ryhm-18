@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Hello, JSP!</title>
+<title>Vaalikone</title>
 
 </head>
 <header class="page-header">

@@ -80,7 +80,7 @@ public class Dao {
 		pstmt.setString(2, f.getKysymys());
 		int rowsInserted = pstmt.executeUpdate();
 		if (rowsInserted > 0) {
-			System.out.println("A new user was inserted successfully!");
+			System.out.println("A new question was inserted successfully!");
 		}
 		 return readAllQuestion();
 		}

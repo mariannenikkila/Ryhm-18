@@ -10,12 +10,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Kysymykset</title>
+<title>Vaalikoneen kysymykset</title>
 
 
 </head>
 <body>
-<h2>Kysymys application</h2>
+<h2>Vaalikoneen kysymykset</h2>
 <ol>
 <c:forEach var="question" items="${requestScope.questionlist}" >
 <li>${question.kysymys}
