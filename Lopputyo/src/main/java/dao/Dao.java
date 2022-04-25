@@ -49,8 +49,6 @@ public class Dao {
 			ResultSet RS=stmt.executeQuery("select * from kysymykset");
 			while (RS.next()){
 				Question f = new Question();
-				//f.setId(RS.getInt("id"));
-				//f.setBreed(RS.getString("breed"));
 				f.setKysymys_id(RS.getInt("kysymys_id"));
 				f.setKysymys(RS.getString("kysymys"));
 				list.add(f);
@@ -76,12 +74,15 @@ public class Dao {
 	}
 	public ArrayList<Question> createQuestion(Question f){
 		try {
-		String sql="insert into kysymykset(kysymys) values(?)";
+		String sql="insert into kysymykset(kysymys_id, kysymys) values(?,?)";
 		PreparedStatement pstmt=conn.prepareStatement(sql);
 		pstmt.setInt(1, f.getKysymys_id());
-		pstmt.setString(1, f.getKysymys());
-		pstmt.executeUpdate();
-		return readAllQuestion();
+		pstmt.setString(2, f.getKysymys());
+		int rowsInserted = pstmt.executeUpdate();
+		if (rowsInserted > 0) {
+			System.out.println("A new user was inserted successfully!");
+		}
+		 return readAllQuestion();
 		}
 		catch (SQLException e) {
 			return null;

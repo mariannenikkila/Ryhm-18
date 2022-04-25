@@ -8,11 +8,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Luo kysymys</title>
+<title>Kysymys application</title>
 </head>
 <body>
-<h2>Luo kysymys</h2>
+<h2>Lisää uusi kysymys</h2>
 <form action='/create' method='post'>
+Kysymys id: <input type='text' name='kysymys_id'><br> 
 Kysymys: <input type='text' name='kysymys'><br>
 <input type='submit' name='ok' value='Send'> 
 </form>

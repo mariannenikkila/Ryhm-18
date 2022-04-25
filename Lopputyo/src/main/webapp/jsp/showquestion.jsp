@@ -24,7 +24,7 @@
 			<a href='/readtoupdate?kysymys_id=${question.kysymys_id}'>update</a>
 		</c:forEach>
 	</ol>
-<a href='/jsp/createkysymys.jsp'>Create new question</a>
+<a href='/jsp/showquestiontoadd.jsp'>Create new question</a>
 
 </body>
 </html>
