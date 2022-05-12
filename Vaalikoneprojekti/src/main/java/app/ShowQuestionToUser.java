@@ -1,0 +1,44 @@
+package app;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dao.Dao;
+import data.Question;
+
+public class ShowQuestionToUser extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    private Dao dao=null;
+
+    @Override
+    public void init() {
+        dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
+    }
+
+    
+    public ShowQuestionToUser() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ArrayList<Question> list=null;
+        if (dao.getConnection()) {
+            list=dao.readAllQuestion();
+        }
+        else {
+            System.out.println("No connection to database");
+        }
+        request.setAttribute("questionlist", list);
+
+        RequestDispatcher rd=request.getRequestDispatcher("/jsp/showquestiontouser.jsp");
+        rd.forward(request, response);
+    }
+}
